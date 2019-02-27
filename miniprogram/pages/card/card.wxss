@@ -1,0 +1,4 @@
+/* miniprogram/pages/card/card.wxss */
+page{
+    background-color: #FFFFFF;
+}

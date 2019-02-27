@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <view class="weui-flex__item">
+      <button   class="userinfo-avatar" style="background-image: url({{avatarUrl}})"> </button>
+    </view>
+    <view class="weui-flex__item">
+      <navigator url="../card/card" open-type="navigate" class="uploader-text">
+        <text style='margin: 0 20rpx 0 0'>添加信用卡</text>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-form-preview" wx:if="{{queryResult}}" wx:for="{{queryResult}}">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">银行</view>
+          <view class="weui-form-preview__value_in-hd">{{item.yinhang}}</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">账单日</view>
+          <view class="weui-form-preview__value">{{item.zhangdanDay}}号</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">还款日</view>
+          <view class="weui-form-preview__value">{{item.huangkuanDay}}号</view>
+        </view>
+        <view class="weui-form-preview__item" style="color:red">
+          <view class="weui-form-preview__label">今日刷款后还款期限</view>
+          <view class="weui-form-preview__value">{{item.shichang}}天</view>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <button bindtap='deleteFun' data-id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">删除</button>
+        <navigator url="/pages/list/list?yinhang={{item.yinhang}}&huangkuanDay={{item.huangkuanDay}}&zhangdanDay={{item.zhangdanDay}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查看</navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="getUserInfo" wx:if="{{getUserInfo}}">
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权用户信息</button>
+</view>

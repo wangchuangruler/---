@@ -1,0 +1,16 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{ yinhang }}</view>
+    <view class="page__desc">本月还款期限</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells__title">{{ yinhang }}银行的{{ month }}月还款期限</view>
+    <view class="weui-cells weui-cells_after-title" wx:for="{{showdata}}">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{item.d}}号</view>
+        <view class="weui-cell__ft">{{item.s}}天</view>
+      </view>
+
+    </view>
+  </view>
+</view>
